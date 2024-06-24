@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 
 import Header from '../Header'
-
 import DishItem from '../DishItem'
 
 import './index.css'
@@ -10,6 +9,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [response, setResponse] = useState([])
   const [activeCategoryId, setActiveCategoryId] = useState('')
+
   const [cartItems, setCartItems] = useState([])
 
   const addItemToCart = dish => {
@@ -21,10 +21,7 @@ const Home = () => {
       setCartItems(prev =>
         prev.map(item =>
           item.dishId === dish.dishId
-            ? {
-                ...item,
-                quantity: item.quantity + 1,
-              }
+            ? {...item, quantity: item.quantity + 1}
             : item,
         ),
       )
@@ -77,6 +74,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchRestaurantApi()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const onUpdateActiveCategoryIdx = menuCategoryId =>
@@ -138,7 +136,7 @@ const Home = () => {
   ) : (
     <div className="home-background">
       <Header cartItems={cartItems} />
-      <ul className="m-0 ps-0 d-flextab-container">{renderTabMenuList()}</ul>
+      <ul className="m-0 ps-0 d-flex tab-container">{renderTabMenuList()}</ul>
       {renderDishes()}
     </div>
   )

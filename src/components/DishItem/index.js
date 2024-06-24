@@ -60,6 +60,7 @@ const DishItem = ({
           <p className="addon-availability-text">Customizations available</p>
         )}
       </div>
+
       <p className="dish-calories text-warning">{dishCalories} calories</p>
       <img className="dish-image" alt={dishName} src={dishImage} />
     </li>
