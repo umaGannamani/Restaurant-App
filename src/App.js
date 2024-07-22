@@ -1,24 +1,21 @@
 import {useState} from 'react'
-
 import {Switch, Route, Redirect} from 'react-router-dom'
 
-import './App.css'
-
 import Home from './components/Home'
-
 import Login from './components/Login'
-
 import Cart from './components/Cart'
-
 import NotFound from './components/NotFound'
 
 import ProtectedRoute from './components/ProtectedRoute'
-
 import CartContext from './context/CartContext'
 
+import './App.css'
+
+// write your code here
 const App = () => {
   const [cartList, setCartList] = useState([])
   const [restaurantName, setRestaurantName] = useState('')
+
   const addCartItem = dish => {
     const isAlreadyExists = cartList.find(item => item.dishId === dish.dishId)
 
@@ -67,9 +64,9 @@ const App = () => {
         cartList,
         addCartItem,
         removeCartItem,
-        removeAllCartItems,
         incrementCartItemQuantity,
         decrementCartItemQuantity,
+        removeAllCartItems,
         restaurantName,
         setRestaurantName,
       }}

@@ -6,7 +6,6 @@ import './index.css'
 
 const DishItem = ({dishDetails}) => {
   const {
-    dishId,
     dishName,
     dishType,
     dishPrice,
@@ -19,7 +18,6 @@ const DishItem = ({dishDetails}) => {
   } = dishDetails
 
   const [quantity, setQuantity] = useState(0)
-
   const {addCartItem} = useContext(CartContext)
 
   const onIncreaseQuantity = () => setQuantity(prevState => prevState + 1)
@@ -73,6 +71,7 @@ const DishItem = ({dishDetails}) => {
           </button>
         )}
       </div>
+
       <p className="dish-calories text-warning">{dishCalories} calories</p>
       <img className="dish-image" alt={dishName} src={dishImage} />
     </li>
